@@ -278,7 +278,7 @@ Resources:
     Properties:
       AvailabilityZone: !Ref AvailabilityZone
       CidrBlock: 172.31.0.0/16
-      MapPublicIpOnLaunch: true
+      MapPublicIpOnLaunch: false
       Tags:
         - Key: Name
           Value: !Sub '${ClusterName}-Subnet'
