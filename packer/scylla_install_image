@@ -177,13 +177,8 @@ if __name__ == '__main__':
             f.write(grub)
         run('grub2-mkconfig -o /boot/grub2/grub.cfg')
     else:
-        with open('/etc/default/grub.d/50-cloudimg-settings.cfg') as f:
-            grub = f.read()
-        grub = re.sub(r'^GRUB_CMDLINE_LINUX_DEFAULT="(.+)"$', r'GRUB_CMDLINE_LINUX_DEFAULT="\1 net.ifnames=0 clocksource=tsc tsc=reliable"', grub, flags=re.MULTILINE)
-        with open('/etc/default/grub.d/50-cloudimg-settings.cfg', 'w') as f:
-            f.write(grub)
-        run('update-grub2')
-
+        run('grub-mkconfig -o /boot/grub/grub.cfg')
+    
     if distro == 'centos':
         profile = '/etc/skel/.bash_profile'
     else:
