@@ -135,7 +135,7 @@
       "client_secret": "{{user `client_secret`}}",
       "tenant_id": "{{user `tenant_id`}}",
       "subscription_id": "{{user `subscription_id`}}",
-      "managed_image_resource_group_name": "scylla-images",
+      "managed_image_resource_group_name": "{{user `resource_group`| clean_resource_name}}",
       "managed_image_name": "{{user `image_name`| clean_resource_name}}",
       "os_type": "Linux",
       "image_publisher": "Canonical",
@@ -157,9 +157,9 @@
         "build_mode": "{{user `build_mode`| clean_resource_name}}"
       },
       "vm_size": "{{user `vm_size`}}",
-      "build_resource_group_name": "scylla-images",
+      "build_resource_group_name": "{{user `resource_group`| clean_resource_name}}",
       "keep_os_disk": true,
-      "virtual_network_name": "scylla-images",
+      "virtual_network_name": "{{user `resource_group`| clean_resource_name}}",
       "private_virtual_network_with_public_ip": true
     }
   ],

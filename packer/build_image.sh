@@ -13,6 +13,7 @@ EXIT_STATUS=0
 DRY_RUN=false
 DEBUG=false
 BUILD_MODE='release'
+RESOURCE_GROUP='scylla-images'
 TARGET=
 APT_KEYS_DIR='/etc/apt/keyrings'
 APT_KEY='d0a112e067426ab2'
@@ -34,6 +35,7 @@ print_usage() {
     echo "  [--build-mode]          Choose which build mode to use for Scylla installation. Default: release. Valid options: release|debug"
     echo "  [--debug]               Build debug image with special prefix for image name. Default: false."
     echo "  [--log-file]            Path for log. Default build/ami.log on current dir. Default: build/packer.log"
+    echo "--[--resource-group]      Resource group name for Azure. Default: scylla-images for eastus region"
     echo "  --target                Target cloud (aws/gce/azure), mandatory when using this script directly, and not by soft links"
     echo "  --arch                  Set the image build architecture. Valid options: x86_64 | aarch64 . if use didn't pass this parameter it will use local node architecture"
     exit 1
@@ -101,6 +103,10 @@ while [ $# -gt 0 ]; do
         "--log-file")
             PACKER_LOG_PATH=$2
             echo "--log-file parameter: PACKER_LOG_PATH |$PACKER_LOG_PATH|"
+            shift 2
+            ;;
+        "--resource-group")
+            RESOURCE_GROUP=$2
             shift 2
             ;;
         "--download-no-server")
@@ -298,6 +304,7 @@ elif [ "$TARGET" = "azure" ]; then
     PACKER_ARGS+=(-var client_secret="$AZURE_CLIENT_SECRET")
     PACKER_ARGS+=(-var tenant_id="$AZURE_TENANT_ID")
     PACKER_ARGS+=(-var subscription_id="$AZURE_SUBSCRIPTION_ID")
+    PACKER_ARGS+=(-var resource_group="$RESOURCE_GROUP")
 fi
 
 IMAGE_NAME="$PRODUCT-$VERSION-$ARCH-$(date '+%FT%T')"
