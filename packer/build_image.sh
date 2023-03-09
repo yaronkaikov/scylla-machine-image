@@ -9,7 +9,6 @@ source "$DIR"/../SCYLLA-VERSION-GEN
 
 BUILD_ID=$(date -u '+%FT%H-%M-%S')
 OPERATING_SYSTEM="ubuntu22.04"
-EXIT_STATUS=0
 DRY_RUN=false
 DEBUG=false
 BUILD_MODE='release'
@@ -127,20 +126,6 @@ while [ $# -gt 0 ]; do
             TARGET="$2"
             shift 2
             echo "--target parameter TARGET: |$TARGET|"
-            case "$TARGET" in
-              "aws")
-                JSON_FILE="ami_variables.json"
-                ;;
-              "gce")
-                JSON_FILE="gce_variables.json"
-                ;;
-              "azure")
-                JSON_FILE="azure_variables.json"
-                ;;
-              *)
-                print_usage
-                ;;
-            esac
             ;;
         "--arch")
             ARCH="$2"
@@ -215,9 +200,6 @@ if [ $LOCALDEB -eq 1 ]; then
 
     SCYLLA_FULL_VERSION=$(get_version_from_local_deb "$DIR"/files/"$PRODUCT"-server*_$(deb_arch).deb)
     SCYLLA_MACHINE_IMAGE_VERSION=$(get_version_from_local_deb "$DIR"/files/"$PRODUCT"-machine-image*_all.deb)
-    SCYLLA_JMX_VERSION=$(get_version_from_local_deb "$DIR"/files/"$PRODUCT"-jmx*_all.deb)
-    SCYLLA_TOOLS_VERSION=$(get_version_from_local_deb "$DIR"/files/"$PRODUCT"-tools-*_all.deb)
-    SCYLLA_PYTHON3_VERSION=$(get_version_from_local_deb "$DIR"/files/"$PRODUCT"-python3*_$(deb_arch).deb)
 
     cd "$DIR"/files
     dpkg-scanpackages . /dev/null | gzip -9c > Packages.gz
@@ -246,9 +228,6 @@ else
 
     SCYLLA_FULL_VERSION=$(get_version_from_remote_deb $PRODUCT-server)
     SCYLLA_MACHINE_IMAGE_VERSION=$(get_version_from_remote_deb $PRODUCT-machine-image)
-    SCYLLA_JMX_VERSION=$(get_version_from_remote_deb $PRODUCT-jmx)
-    SCYLLA_TOOLS_VERSION=$(get_version_from_remote_deb $PRODUCT-tools)
-    SCYLLA_PYTHON3_VERSION=$(get_version_from_remote_deb $PRODUCT-python3)
 
     sudo rm -f $TMPREPO
 
@@ -275,29 +254,27 @@ if [ "$TARGET" = "aws" ]; then
         exit 1
     esac
 
-    SCYLLA_AMI_DESCRIPTION="scylla-$SCYLLA_FULL_VERSION scylla-machine-image-$SCYLLA_MACHINE_IMAGE_VERSION scylla-jmx-$SCYLLA_JMX_VERSION scylla-tools-$SCYLLA_TOOLS_VERSION scylla-python3-$SCYLLA_PYTHON3_VERSION"
+    PACKER_ARGS+=(-var=region="$REGION")
+    PACKER_ARGS+=(-var=instance_type="$INSTANCE_TYPE")
+    PACKER_ARGS+=(-var=source_ami_filter="$SOURCE_AMI_FILTER")
+    PACKER_ARGS+=(-var=source_ami_owner="$SOURCE_AMI_OWNER")
+    if [ -n "$AMI_REGIONS" ]; then
+      PACKER_ARGS+=(-var=ami_regions="$AMI_REGIONS")
+    fi
 
-    PACKER_ARGS+=(-var region="$REGION")
-    PACKER_ARGS+=(-var buildMode="$BUILD_MODE")
-    PACKER_ARGS+=(-var instance_type="$INSTANCE_TYPE")
-    PACKER_ARGS+=(-var source_ami_filter="$SOURCE_AMI_FILTER")
-    PACKER_ARGS+=(-var source_ami_owner="$SOURCE_AMI_OWNER")
-    PACKER_ARGS+=(-var scylla_ami_description="${SCYLLA_AMI_DESCRIPTION:0:255}")
 elif [ "$TARGET" = "gce" ]; then
     SSH_USERNAME=ubuntu
     SOURCE_IMAGE_FAMILY="ubuntu-minimal-2204-lts"
 
-    PACKER_ARGS+=(-var source_image_family="$SOURCE_IMAGE_FAMILY")
+    PACKER_ARGS+=(-var=source_image_family="$SOURCE_IMAGE_FAMILY")
 elif [ "$TARGET" = "azure" ]; then
     REGION="EAST US"
     SSH_USERNAME=azureuser
-    SCYLLA_IMAGE_DESCRIPTION="scylla-$SCYLLA_FULL_VERSION scylla-machine-image-$SCYLLA_MACHINE_IMAGE_VERSION scylla-jmx-$SCYLLA_JMX_VERSION scylla-tools-$SCYLLA_TOOLS_VERSION scylla-python3-$SCYLLA_PYTHON3_VERSION"
 
-    PACKER_ARGS+=(-var scylla_image_description="${SCYLLA_IMAGE_DESCRIPTION:0:255}")
-    PACKER_ARGS+=(-var client_id="$AZURE_CLIENT_ID")
-    PACKER_ARGS+=(-var client_secret="$AZURE_CLIENT_SECRET")
-    PACKER_ARGS+=(-var tenant_id="$AZURE_TENANT_ID")
-    PACKER_ARGS+=(-var subscription_id="$AZURE_SUBSCRIPTION_ID")
+    PACKER_ARGS+=(-var=client_id="$AZURE_CLIENT_ID")
+    PACKER_ARGS+=(-var=client_secret="$AZURE_CLIENT_SECRET")
+    PACKER_ARGS+=(-var=tenant_id="$AZURE_TENANT_ID")
+    PACKER_ARGS+=(-var=subscription_id="$AZURE_SUBSCRIPTION_ID")
 fi
 
 IMAGE_NAME="$PRODUCT-$VERSION-$ARCH-$(date '+%FT%T')"
@@ -308,12 +285,6 @@ if $DEBUG ; then
   IMAGE_NAME="debug-$IMAGE_NAME"
 fi
 
-if [ ! -f $JSON_FILE ]; then
-    echo "'$JSON_FILE not found. Please create it before start building Image."
-    echo "See variables.json.example"
-    exit 1
-fi
-
 mkdir -p build
 
 export PACKER_LOG=1
@@ -321,28 +292,24 @@ export PACKER_LOG_PATH
 
 set -x
 /usr/bin/packer ${PACKER_SUB_CMD} \
-  -only="$TARGET" \
-  -var-file="$JSON_FILE" \
-  -var install_args="$INSTALL_ARGS" \
-  -var ssh_username="$SSH_USERNAME" \
-  -var scylla_full_version="$SCYLLA_FULL_VERSION" \
-  -var scylla_version="$VERSION" \
-  -var scylla_machine_image_version="$SCYLLA_MACHINE_IMAGE_VERSION" \
-  -var scylla_jmx_version="$SCYLLA_JMX_VERSION" \
-  -var scylla_tools_version="$SCYLLA_TOOLS_VERSION" \
-  -var scylla_python3_version="$SCYLLA_PYTHON3_VERSION" \
-  -var scylla_build_id="$BUILD_ID" \
-  -var scylla_build_sha_id="$SCYLLA_BUILD_SHA_ID" \
-  -var build_tag="$BUILD_TAG" \
-  -var operating_system="$OPERATING_SYSTEM" \
-  -var branch="$BRANCH" \
-  -var ami_regions="$AMI_REGIONS" \
-  -var arch="$ARCH" \
-  -var product="$PRODUCT" \
-  -var build_mode="$BUILD_MODE" \
-  -var image_name="$IMAGE_NAME" \
+  -only "*.$TARGET" \
+  -var=target="$TARGET" \
+  -var=repo="$REPO_FOR_INSTALL" \
+  -var=ssh_username="$SSH_USERNAME" \
+  -var=scylla_version="$VERSION" \
+  -var=scylla_build_id="$BUILD_ID" \
+  -var=scylla_build_sha_id="$SCYLLA_BUILD_SHA_ID" \
+  -var=build_tag="$BUILD_TAG" \
+  -var=operating_system="$OPERATING_SYSTEM" \
+  -var=branch="$BRANCH" \
+  -var=arch="$ARCH" \
+  -var=product="$PRODUCT" \
+  -var=build_mode="$BUILD_MODE" \
+  -var=image_name="$IMAGE_NAME" \
+  -var=scylla_full_version="$SCYLLA_FULL_VERSION" \
   "${PACKER_ARGS[@]}" \
-  "$DIR"/scylla.json
+  -var=scylla_machine_image_version="$SCYLLA_MACHINE_IMAGE_VERSION" \
+  "$DIR"/scylla.pkr.hcl
 set +x
 # For some errors packer gives a success status even if fails.
 # Search log for errors
