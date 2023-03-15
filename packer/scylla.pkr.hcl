@@ -1,32 +1,56 @@
-variable "ssh_username" { type = string default = "" }
-variable "client_id" { type = string default = "" }
-variable "client_secret" { type = string default = "" }
-variable "tenant_id" { type = string default = "" }
-variable "subscription_id" { type = string default = "" }
-variable "image_name" { type = string default = "" }
-variable "arch" { type = string default = "" }
-variable "product" { type = string default = "" }
-variable "repo" { type = string default = "" }
-variable "scylla_build_id" { type = string default = "" }
-variable "build_mode" { type = string default = "" }
-variable "scylla_version" { type = string default = "" }
-variable "scylla_build_sha_id" { type = string default = "" }
-variable "operating_system" { type = string default = "" }
-variable "build_tag" { type = string default = "" }
-variable "branch" { type = string default = "" }
-variable "scylla_full_version" { type = string default = "" }
-variable "scylla_machine_image_version" { type = string default = "" }
-variable "target" { type = string default = "" }
-variable "install_args" { type = string default = "" }
-variable "instance_type" { type = string default = "" }
-variable "region" { type = string default = "" }
-variable "source_ami_owner" { type = string default = "" }
-variable "source_ami_filter" { type = string default = "" }
-variable "scylla_ami_description" { type = string default = "" }
-variable "source_image_family" { type = string default = "" }
-variable "project_id" { type = string default = "scylla-images" }
-variable "image_storage_location" { type = string default = "" }
-variable "ami_regions" { type = string default = "us-east-1" }
+variable "ssh_username" {}
+variable "image_name" {}
+variable "arch" {}
+variable "product" {}
+variable "repo" {}
+variable "scylla_build_id" {}
+variable "build_mode" {}
+variable "scylla_version" {}
+variable "scylla_build_sha_id" {}
+variable "operating_system" {}
+variable "build_tag" {}
+variable "branch" {}
+variable "scylla_full_version" {}
+variable "scylla_machine_image_version" {}
+variable "target" {}
+variable "instance_type" {}
+variable "source_os_filter" {}
+variable "ami_regions" {
+  type = string
+  default = ""
+}
+variable "source_ami_owner" {
+  type = string
+  default = ""
+}
+variable "region" {
+  type = string
+  default = ""
+}
+variable "client_id" {
+  type = string
+  default = ""
+}
+variable "client_secret" {
+  type = string
+  default = ""
+}
+variable "tenant_id" {
+  type = string
+  default = ""
+}
+variable "subscription_id" {
+  type = string
+  default = ""
+}
+variable "image_offer" {
+  type = string
+  default = ""
+}
+variable "image_publisher" {
+  type = string
+  default = ""
+}
 
 source "azure-arm" "azure" {
   azure_tags = {
@@ -52,10 +76,10 @@ source "azure-arm" "azure" {
   managed_image_resource_group_name = "scylla-images"
   managed_image_name = regex_replace("${var.image_name}", ":", "-")
   os_type = "Linux"
-  image_publisher = "Canonical"
-  image_offer = "0001-com-ubuntu-minimal-jammy"
-  image_sku = "minimal-22_04-lts-gen2"
-  vm_size = "Standard_D4_v4"
+  image_publisher = "${var.image_publisher}"
+  image_offer = "${var.image_offer}"
+  image_sku = "${var.source_os_filter}"
+  vm_size = "${var.instance_type}"
   keep_os_disk = true
   private_virtual_network_with_public_ip = true
   build_resource_group_name = "scylla-images"
@@ -100,12 +124,11 @@ source "amazon-ebs" "aws" {
   }
   source_ami_filter {
     filters = {
-       name = "${var.source_ami_filter}"
+       name = "${var.source_os_filter}"
     }
     owners = ["${var.source_ami_owner}"]
     most_recent = true
   }
-  ami_description             = "${var.scylla_ami_description}"
   ami_name                    = regex_replace("${var.image_name}", ":", "-")
   ena_support   = true
   instance_type = "${var.instance_type}"
@@ -147,6 +170,7 @@ source "googlecompute" "gce" {
   disk_size         = 30
   image_description = "Official ScyllaDB image ${var.scylla_version}"
   image_family      = "scylla"
+  project_id        = "scylla-images"
   image_labels = {
     arch                         = "${var.arch}"
     branch                       = "${var.branch}"
@@ -163,7 +187,6 @@ source "googlecompute" "gce" {
     user_data_format_version     = "3"
   }
   image_name              = "${lower(regex_replace("${var.image_name}", "[: . _]", "-"))}"
-  image_storage_locations = ["${var.image_storage_location}"]
   labels = {
     keep        = 1
     keep_action = "terminate"
@@ -174,8 +197,7 @@ source "googlecompute" "gce" {
   }
   omit_external_ip    = false
   preemptible         = true
-  project_id          = "${var.project_id}"
-  source_image_family = "${var.source_image_family}"
+  source_image_family = "${var.source_os_filter}"
   ssh_timeout         = "6m"
   ssh_username        = "${var.ssh_username}"
   use_internal_ip     = false
@@ -187,13 +209,7 @@ build {
     "source.amazon-ebs.aws",
     "source.googlecompute.gce"
   ]
-  post-processor "manifest" {
-    output = "manifest.json"
-    strip_path = true
-    custom_data = {
-      image_name = regex_replace("${var.image_name}", ":", "-")
-    }
-  }
+
   provisioner "file" {
     destination = "/home/${var.ssh_username}/"
     source      = "files/"
@@ -222,5 +238,13 @@ build {
 
   provisioner "shell" {
     inline = ["if [ ${var.target} = gce -o ${var.target} = azure ]; then sudo userdel -r -f ${var.ssh_username}; fi"]
+  }
+
+  post-processor "manifest" {
+    output = "manifest.json"
+    strip_path = false
+    custom_data = {
+      image_name = regex_replace("${var.image_name}", ":", "-")
+    }
   }
 }

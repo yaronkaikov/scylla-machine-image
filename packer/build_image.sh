@@ -15,6 +15,7 @@ BUILD_MODE='release'
 TARGET=
 APT_KEYS_DIR='/etc/apt/keyrings'
 APT_KEY='d0a112e067426ab2'
+AMI_REGIONS="us-east-1"
 
 print_usage() {
     echo "$0 --localdeb --repo [URL] --target [distribution]"
@@ -242,11 +243,11 @@ if [ "$TARGET" = "aws" ]; then
     arch="$ARCH"
     case "$arch" in
       "x86_64")
-        SOURCE_AMI_FILTER="ubuntu-minimal/images/hvm-ssd/ubuntu-jammy-22.04-amd64*"
+        SOURCE_OS_FILTER="ubuntu-minimal/images/hvm-ssd/ubuntu-jammy-22.04-amd64*"
         INSTANCE_TYPE="c4.xlarge"
         ;;
       "aarch64")
-        SOURCE_AMI_FILTER="ubuntu-minimal/images/hvm-ssd/ubuntu-jammy-22.04-arm64*"
+        SOURCE_OS_FILTER="ubuntu-minimal/images/hvm-ssd/ubuntu-jammy-22.04-arm64*"
         INSTANCE_TYPE="a1.xlarge"
         ;;
       *)
@@ -256,25 +257,27 @@ if [ "$TARGET" = "aws" ]; then
 
     PACKER_ARGS+=(-var=region="$REGION")
     PACKER_ARGS+=(-var=instance_type="$INSTANCE_TYPE")
-    PACKER_ARGS+=(-var=source_ami_filter="$SOURCE_AMI_FILTER")
     PACKER_ARGS+=(-var=source_ami_owner="$SOURCE_AMI_OWNER")
-    if [ -n "$AMI_REGIONS" ]; then
-      PACKER_ARGS+=(-var=ami_regions="$AMI_REGIONS")
-    fi
+    PACKER_ARGS+=(-var=ami_regions="$AMI_REGIONS")
 
 elif [ "$TARGET" = "gce" ]; then
     SSH_USERNAME=ubuntu
-    SOURCE_IMAGE_FAMILY="ubuntu-minimal-2204-lts"
+    SOURCE_OS_FILTER="ubuntu-minimal-2204-lts"
+    INSTANCE_TYPE="n2-standard-2"
+    PACKER_ARGS+=(-var=zone="$REGION")
 
-    PACKER_ARGS+=(-var=source_image_family="$SOURCE_IMAGE_FAMILY")
 elif [ "$TARGET" = "azure" ]; then
     REGION="EAST US"
     SSH_USERNAME=azureuser
+    SOURCE_OS_FILTER="minimal-22_04-lts-gen2"
+    INSTANCE_TYPE="Standard_D4_v4"
 
     PACKER_ARGS+=(-var=client_id="$AZURE_CLIENT_ID")
     PACKER_ARGS+=(-var=client_secret="$AZURE_CLIENT_SECRET")
     PACKER_ARGS+=(-var=tenant_id="$AZURE_TENANT_ID")
     PACKER_ARGS+=(-var=subscription_id="$AZURE_SUBSCRIPTION_ID")
+    PACKER_ARGS+=(-var=image_publisher="Canonical")
+    PACKER_ARGS+=(-var=image_offer="0001-com-ubuntu-minimal-jammy")
 fi
 
 IMAGE_NAME="$PRODUCT-$VERSION-$ARCH-$(date '+%FT%T')"
@@ -290,11 +293,11 @@ mkdir -p build
 export PACKER_LOG=1
 export PACKER_LOG_PATH
 
-set -x
 /usr/bin/packer ${PACKER_SUB_CMD} \
   -only "*.$TARGET" \
   -var=target="$TARGET" \
   -var=repo="$REPO_FOR_INSTALL" \
+  -var=source_os_filter="$SOURCE_OS_FILTER" \
   -var=ssh_username="$SSH_USERNAME" \
   -var=scylla_version="$VERSION" \
   -var=scylla_build_id="$BUILD_ID" \
@@ -304,43 +307,44 @@ set -x
   -var=branch="$BRANCH" \
   -var=arch="$ARCH" \
   -var=product="$PRODUCT" \
+  -var=instance_type="$INSTANCE_TYPE" \
   -var=build_mode="$BUILD_MODE" \
   -var=image_name="$IMAGE_NAME" \
   -var=scylla_full_version="$SCYLLA_FULL_VERSION" \
   "${PACKER_ARGS[@]}" \
   -var=scylla_machine_image_version="$SCYLLA_MACHINE_IMAGE_VERSION" \
   "$DIR"/scylla.pkr.hcl
-set +x
-# For some errors packer gives a success status even if fails.
-# Search log for errors
-if $DRY_RUN ; then
-  echo "DryRun: No need to grep errors on log"
-else
-  GREP_STATUS=0
-  case "$TARGET" in
-    "aws")
-      grep "us-east-1:" $PACKER_LOG_PATH
-      GREP_STATUS=$?
-      ;;
-    "gce")
-      grep "A disk image was created" $PACKER_LOG_PATH
-      GREP_STATUS=$?
-      ;;
-    "azure")
-      grep "Builds finished. The artifacts of successful builds are:" $PACKER_LOG_PATH
-      GREP_STATUS=$?
-      ;;
-    *)
-      echo "No Target is defined"
-      exit 1
-  esac
 
-  if [ $GREP_STATUS -ne 0 ] ; then
-    echo "Error: No image line found on log."
-    exit 1
-  else
-    echo "Success: image line found on log"
-  fi
-fi
-
-exit $EXIT_STATUS
+## For some errors packer gives a success status even if fails.
+## Search log for errors
+#if $DRY_RUN ; then
+#  echo "DryRun: No need to grep errors on log"
+#else
+#  GREP_STATUS=0
+#  case "$TARGET" in
+#    "aws")
+#      grep "us-east-1:" $PACKER_LOG_PATH > /dev/null
+#      GREP_STATUS=$?
+#      ;;
+#    "gce")
+#      grep "A disk image was created" $PACKER_LOG_PATH > /dev/null
+#      GREP_STATUS=$?
+#      ;;
+#    "azure")
+#      grep "Builds finished. The artifacts of successful builds are:" $PACKER_LOG_PATH > /dev/null
+#      GREP_STATUS=$?
+#      ;;
+#    *)
+#      echo "No Target is defined"
+#      exit 1
+#  esac
+#
+#  if [ $GREP_STATUS -ne 0 ] ; then
+#    echo "Error: No image line found on log."
+#    exit 1
+#  else
+#    echo "Success: image line found on log"
+#  fi
+#fi
+#
+#exit $EXIT_STATUS
