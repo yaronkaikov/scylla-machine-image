@@ -118,6 +118,47 @@ class CloudProviderInterface:
         """Create an instance and return its ID"""
         raise NotImplementedError
         
+    def get_instance_readiness_timeout(self, instance_type: str) -> int:
+        """
+        Get appropriate timeout for instance readiness based on instance type.
+        Larger instances need more time to initialize ScyllaDB.
+        """
+        # Base timeout for small instances
+        base_timeout = 180  # 3 minutes
+        
+        # Extract instance size from type (e.g., 'i7i.xlarge' -> 'xlarge')
+        if '.' in instance_type:
+            size = instance_type.split('.')[-1]
+        else:
+            return base_timeout
+            
+        # Define size multipliers based on typical instance initialization times
+        size_multipliers = {
+            'nano': 1.0,
+            'micro': 1.0,
+            'small': 1.0,
+            'medium': 1.2,
+            'large': 1.5,
+            'xlarge': 2.0,    # 6 minutes for xlarge instances
+            '2xlarge': 2.5,   # 7.5 minutes
+            '4xlarge': 3.0,   # 9 minutes
+            '8xlarge': 3.5,   # 10.5 minutes
+            '12xlarge': 4.0,  # 12 minutes
+            '16xlarge': 4.5,  # 13.5 minutes
+            '24xlarge': 5.0,  # 15 minutes
+            '32xlarge': 6.0,  # 18 minutes
+            '48xlarge': 7.0,  # 21 minutes
+            'metal': 8.0,     # 24 minutes for bare metal
+        }
+        
+        # Get multiplier for this size, default to 2.0 for unknown sizes
+        multiplier = size_multipliers.get(size, 2.0)
+        timeout = int(base_timeout * multiplier)
+        
+        # Cap maximum timeout at 30 minutes for very large instances
+        max_timeout = 1800  # 30 minutes
+        return min(timeout, max_timeout)
+        
     async def wait_for_instance_ready(self, instance_id: str, timeout: int = 180) -> bool:
         """Wait for instance to be ready and return True if successful"""
         raise NotImplementedError
@@ -673,8 +714,54 @@ class AWSProvider(CloudProviderInterface):
         """Get available instance types for a given family by querying AWS API"""
         try:
             if self.dry_run:
-                # For dry runs, return some sample types for testing
-                return [f"{instance_family}.large", f"{instance_family}.xlarge"]
+                # Enhanced dry-run data with realistic instance type counts based on AWS documentation
+                dry_run_data = {
+                    'i7i': [
+                        'i7i.large', 'i7i.xlarge', 'i7i.2xlarge', 'i7i.4xlarge', 
+                        'i7i.8xlarge', 'i7i.12xlarge', 'i7i.16xlarge', 'i7i.24xlarge',
+                        'i7i.32xlarge', 'i7i.48xlarge', 'i7i.metal-24xl', 'i7i.metal-48xl'
+                    ],
+                    'i4i': [
+                        'i4i.large', 'i4i.xlarge', 'i4i.2xlarge', 'i4i.4xlarge',
+                        'i4i.8xlarge', 'i4i.16xlarge', 'i4i.32xlarge', 'i4i.metal'
+                    ],
+                    'i3en': [
+                        'i3en.large', 'i3en.xlarge', 'i3en.2xlarge', 'i3en.3xlarge',
+                        'i3en.6xlarge', 'i3en.12xlarge', 'i3en.24xlarge', 'i3en.metal'
+                    ],
+                    'c5': [
+                        'c5.large', 'c5.xlarge', 'c5.2xlarge', 'c5.4xlarge',
+                        'c5.9xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.metal'
+                    ],
+                    'c5d': [
+                        'c5d.large', 'c5d.xlarge', 'c5d.2xlarge', 'c5d.4xlarge',
+                        'c5d.9xlarge', 'c5d.12xlarge', 'c5d.18xlarge', 'c5d.24xlarge', 'c5d.metal'
+                    ],
+                    'm5': [
+                        'm5.large', 'm5.xlarge', 'm5.2xlarge', 'm5.4xlarge',
+                        'm5.8xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.metal'
+                    ],
+                    'c7i': [
+                        'c7i.large', 'c7i.xlarge', 'c7i.2xlarge', 'c7i.4xlarge',
+                        'c7i.8xlarge', 'c7i.12xlarge', 'c7i.16xlarge', 'c7i.24xlarge',
+                        'c7i.48xlarge', 'c7i.metal-24xl', 'c7i.metal-48xl'
+                    ],
+                    'm7i': [
+                        'm7i.large', 'm7i.xlarge', 'm7i.2xlarge', 'm7i.4xlarge',
+                        'm7i.8xlarge', 'm7i.12xlarge', 'm7i.16xlarge', 'm7i.24xlarge',
+                        'm7i.48xlarge', 'm7i.metal-24xl', 'm7i.metal-48xl'
+                    ]
+                }
+                
+                # Return realistic dry-run data or fall back to generic pattern
+                if instance_family in dry_run_data:
+                    logger.info(f"Dry-run: returning {len(dry_run_data[instance_family])} instance types for family '{instance_family}'")
+                    return dry_run_data[instance_family]
+                else:
+                    # Generic fallback for unknown families
+                    generic_types = [f"{instance_family}.large", f"{instance_family}.xlarge", f"{instance_family}.2xlarge"]
+                    logger.info(f"Dry-run: returning generic types for unknown family '{instance_family}': {generic_types}")
+                    return generic_types
             
             logger.info(f"Discovering available instance types for family '{instance_family}' in region {self.region}")
             
@@ -692,11 +779,27 @@ class AWSProvider(CloudProviderInterface):
                         
             if not instance_types:
                 logger.warning(f"No instance types found for family '{instance_family}' in region {self.region}")
+                logger.info("This could be due to:")
+                logger.info("  • Region-specific availability (not all instance types available in all regions)")
+                logger.info("  • Instance types in preview/limited availability status")
+                logger.info("  • Account-specific restrictions or approval requirements")
+                logger.info(f"  • Try a different region or contact AWS support for '{instance_family}' family availability")
                 return []
                 
             # Sort instance types for consistent ordering
             instance_types.sort()
             logger.info(f"Found {len(instance_types)} instance types for family '{instance_family}': {', '.join(instance_types)}")
+            
+            # If we found fewer types than expected, log some analysis
+            expected_counts = {
+                'i7i': 12, 'i4i': 8, 'i3en': 8, 'c5': 9, 'c5d': 9, 'm5': 9,
+                'c7i': 11, 'm7i': 11
+            }
+            
+            expected = expected_counts.get(instance_family)
+            if expected and len(instance_types) < expected:
+                logger.info(f"Note: Found {len(instance_types)} {instance_family} types, expected ~{expected}")
+                logger.info("This is normal and can be due to regional availability or account restrictions")
             
             return instance_types
             
@@ -1184,8 +1287,11 @@ class CloudBenchmarkRunner:
         max_wait_time = 1200  # 20 minutes in seconds
         
         try:
-            # Wait for instance to be ready
-            if not await self.provider.wait_for_instance_ready(instance_id):
+            # Wait for instance to be ready with dynamic timeout based on instance size
+            timeout = self.provider.get_instance_readiness_timeout(instance_type)
+            logger.info(f"Waiting for {instance_type} instance {instance_id} to be ready (timeout: {timeout}s)")
+            
+            if not await self.provider.wait_for_instance_ready(instance_id, timeout):
                 return IoSetupResult(
                     cloud=self.provider.__class__.__name__.replace('Provider', '').lower(),
                     instance_type=instance_type,

@@ -1,0 +1,58 @@
+================================================================================
+🔍 INVESTIGATING: i7i Instance Type Count
+Expected: 11 i7i instance types according to AWS documentation
+Reported: Only 3 instance types discovered
+================================================================================
+
+1. Testing DRY-RUN mode:
+   Dry-run result: 2 types: ['i7i.large', 'i7i.xlarge']
+   ✅ Dry-run mode returns expected hardcoded sample (2 types)
+
+2. Testing REAL AWS API call:
+2025-06-19 12:56:55,730 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 12:56:56,485 - INFO - Discovering available instance types for family 'i7i' in region us-east-1
+2025-06-19 12:57:09,891 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+   Real API result: 11 types: ['i7i.12xlarge', 'i7i.16xlarge', 'i7i.24xlarge', 'i7i.2xlarge', 'i7i.48xlarge', 'i7i.4xlarge', 'i7i.8xlarge', 'i7i.large', 'i7i.metal-24xl', 'i7i.metal-48xl', 'i7i.xlarge']
+   ✅ Found expected 11 i7i instance types!
+
+3. Testing different regions:
+2025-06-19 12:57:10,625 - INFO - Discovering available instance types for family 'i7i' in region us-east-1
+2025-06-19 12:57:24,097 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+   us-east-1: 11 types: ['i7i.12xlarge', 'i7i.16xlarge', 'i7i.24xlarge', 'i7i.2xlarge', 'i7i.48xlarge', 'i7i.4xlarge', 'i7i.8xlarge', 'i7i.large', 'i7i.metal-24xl', 'i7i.metal-48xl', 'i7i.xlarge']
+2025-06-19 12:57:25,062 - INFO - Discovering available instance types for family 'i7i' in region us-west-2
+2025-06-19 12:57:38,171 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+   us-west-2: 11 types: ['i7i.12xlarge', 'i7i.16xlarge', 'i7i.24xlarge', 'i7i.2xlarge', 'i7i.48xlarge', 'i7i.4xlarge', 'i7i.8xlarge', 'i7i.large', 'i7i.metal-24xl', 'i7i.metal-48xl', 'i7i.xlarge']
+2025-06-19 12:57:38,608 - INFO - Discovering available instance types for family 'i7i' in region eu-west-1
+2025-06-19 12:57:45,312 - WARNING - No instance types found for family 'i7i' in region eu-west-1
+   eu-west-1: 0 types: []
+
+4. Testing other instance families for comparison:
+2025-06-19 12:57:46,001 - INFO - Discovering available instance types for family 'i4i' in region us-east-1
+2025-06-19 12:57:59,263 - INFO - Found 10 instance types for family 'i4i': i4i.12xlarge, i4i.16xlarge, i4i.24xlarge, i4i.2xlarge, i4i.32xlarge, i4i.4xlarge, i4i.8xlarge, i4i.large, i4i.metal, i4i.xlarge
+   i4i: 10 types
+2025-06-19 12:57:59,265 - INFO - Discovering available instance types for family 'i3en' in region us-east-1
+2025-06-19 12:58:05,237 - INFO - Found 8 instance types for family 'i3en': i3en.12xlarge, i3en.24xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.large, i3en.metal, i3en.xlarge
+   i3en: 8 types
+2025-06-19 12:58:05,237 - INFO - Discovering available instance types for family 'c5' in region us-east-1
+2025-06-19 12:58:09,290 - INFO - Found 9 instance types for family 'c5': c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.metal, c5.xlarge
+   c5: 9 types
+2025-06-19 12:58:09,292 - INFO - Discovering available instance types for family 'm5' in region us-east-1
+2025-06-19 12:58:13,166 - INFO - Found 9 instance types for family 'm5': m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.large, m5.metal, m5.xlarge
+   m5: 9 types
+
+================================================================================
+📊 ANALYSIS:
+If dry-run shows 2 types but you're seeing 3, there might be:
+1. A bug in the dry-run logic
+2. Mixed results from different test runs
+3. The count includes some other source
+
+If real API shows fewer than 11 types, it could be:
+1. Region-specific availability
+2. Account-specific limits or restrictions
+3. Instance types in preview/beta status
+4. API filtering based on some criteria
+================================================================================
+
+🎯 Investigation completed successfully!
+Check the output above to understand the i7i instance type count.
