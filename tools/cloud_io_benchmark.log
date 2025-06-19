@@ -566,3 +566,18 @@
 2025-06-19 12:07:06,524 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
 2025-06-19 12:07:07,964 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
 2025-06-19 12:07:09,414 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:20:27,528 - INFO - Will test 2 instance types: i7i.large, i7i.xlarge
+2025-06-19 12:20:38,533 - INFO - Will test 2 instance types: i4i.large, i4i.xlarge
+2025-06-19 12:21:17,690 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 12:21:18,481 - INFO - Discovering available instance types for family 'i7i' in region us-east-1
+2025-06-19 12:21:31,436 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+2025-06-19 12:21:31,437 - INFO - Will test 11 instance types: i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+2025-06-19 12:21:32,134 - INFO - Starting benchmarks for 11 instance types
+2025-06-19 12:21:32,135 - INFO - Starting benchmark for i7i.12xlarge with 1 runs
+2025-06-19 12:21:33,195 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.12xlarge
+2025-06-19 12:21:33,195 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 12:21:33,472 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 12:21:34,723 - INFO - Created AWS instance i-02f72fd6aaacd6b56 of type i7i.12xlarge
+2025-06-19 12:32:58,917 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 12:34:17,005 - INFO - Will test 2 instance types: i7i.large, i7i.xlarge
+2025-06-19 12:34:17,131 - INFO - Found credentials in shared credentials file: ~/.aws/credentials

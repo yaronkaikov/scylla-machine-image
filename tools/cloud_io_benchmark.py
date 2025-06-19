@@ -849,9 +849,9 @@ class GCPProvider(CloudProviderInterface):
     async def run_command_on_instance(self, instance_id: str, command: str) -> Tuple[int, str, str]:
         """Run command via gcloud SSH"""
         try:
-            # Use gcloud SSH to connect to the instance
+            # Use gcloud SSH to connect to the instance with scyllaadm user
             gcloud_cmd = [
-                'gcloud', 'compute', 'ssh', instance_id,
+                'gcloud', 'compute', 'ssh', f'scyllaadm@{instance_id}',
                 '--project', self.project_id,
                 '--zone', self.zone,
                 '--ssh-flag=-o StrictHostKeyChecking=no',
