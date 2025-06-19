@@ -1,0 +1,2 @@
+cloud,instance_type,instance_id,run_number,success,execution_time,read_iops,write_iops,read_bandwidth,write_bandwidth,error_message
+aws,i7i.xlarge,i-0dbf425ac88c50634,1,True,216.1937699317932,164490.0,91324.0,1216830208.0,834120832.0,

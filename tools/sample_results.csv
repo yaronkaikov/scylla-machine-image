@@ -1,0 +1,16 @@
+cloud,instance_type,instance_id,run_number,success,execution_time,read_iops,write_iops,read_bandwidth,write_bandwidth,error_message
+aws,i4i.large,i-12345,1,True,45.2,75000,68000,1200.5,1100.3,
+aws,i4i.large,i-12346,2,True,43.8,76500,69200,1210.2,1105.7,
+aws,i4i.large,i-12347,3,True,44.5,74800,67500,1195.8,1098.4,
+aws,i4i.xlarge,i-23456,1,True,42.1,145000,132000,2400.8,2200.6,
+aws,i4i.xlarge,i-23457,2,True,43.3,143500,130500,2385.2,2185.3,
+aws,i4i.xlarge,i-23458,3,False,0,,,,,Command timeout
+gcp,n2-standard-4,instance-abc123,1,True,48.7,45000,42000,750.2,720.8,
+gcp,n2-standard-4,instance-abc124,2,True,47.9,46200,43100,755.8,725.4,
+gcp,n2-standard-4,instance-abc125,3,True,49.1,44800,41800,745.6,718.2,
+gcp,n2-standard-8,instance-def456,1,True,46.3,88000,81000,1450.5,1380.7,
+gcp,n2-standard-8,instance-def457,2,True,45.8,89500,82500,1465.2,1395.3,
+gcp,n2-standard-8,instance-def458,3,True,47.1,87200,80200,1440.8,1375.1,
+azure,Standard_L8s_v3,vm-xyz789,1,True,52.3,95000,88000,1650.4,1580.9,
+azure,Standard_L8s_v3,vm-xyz790,2,True,51.7,96800,89500,1665.7,1590.2,
+azure,Standard_L8s_v3,vm-xyz791,3,True,53.1,94200,87200,1640.1,1575.6,

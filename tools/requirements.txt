@@ -1,0 +1,22 @@
+# Cloud I/O Benchmark Script Dependencies
+
+# AWS SDK
+boto3>=1.26.0
+botocore>=1.29.0
+
+# Google Cloud SDK
+google-cloud-compute>=1.11.0
+google-auth>=2.17.0
+
+# Azure SDK
+azure-identity>=1.12.0
+azure-mgmt-compute>=29.0.0
+azure-mgmt-network>=22.0.0
+azure-mgmt-resource>=22.0.0
+azure-core>=1.26.0
+
+# YAML parsing
+PyYAML>=6.0
+
+# Additional utilities for async subprocess handling
+typing-extensions>=4.0.0
