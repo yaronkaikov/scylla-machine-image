@@ -118,7 +118,7 @@ class CloudProviderInterface:
         """Create an instance and return its ID"""
         raise NotImplementedError
         
-    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 600) -> bool:
+    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 180) -> bool:
         """Wait for instance to be ready and return True if successful"""
         raise NotImplementedError
         
@@ -528,7 +528,7 @@ class AWSProvider(CloudProviderInterface):
             else:
                 raise RuntimeError(f"Failed to create AWS instance: {error_message}")
             
-    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 600) -> bool:
+    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 180) -> bool:
         """Wait for EC2 instance to be ready"""
         waiter = self.ec2_client.get_waiter('instance_status_ok')
         try:
@@ -555,7 +555,7 @@ class AWSProvider(CloudProviderInterface):
             ip_address = await self.get_instance_ip(instance_id)
             
             # Try different SSH users for ScyllaDB images
-            ssh_users = ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+            ssh_users = ['scyllaadm']
             
             for user in ssh_users:
                 # SSH command with error handling
@@ -657,9 +657,9 @@ class AWSProvider(CloudProviderInterface):
                     logger.debug(f"SSH connection failed for user '{user}': {stderr_str}")
                     continue
             
-            # If all users failed, return the last error
-            logger.error(f"SSH connection failed for all attempted users: {ssh_users}")
-            return 1, "", f"SSH connection failed for all users: {ssh_users}. " + \
+            # If SSH connection failed, return the error
+            logger.error(f"SSH connection failed for user: {ssh_users}")
+            return 1, "", f"SSH connection failed for user: {ssh_users}. " + \
                           f"Make sure your SSH key is properly configured and accessible."
             
         except asyncio.TimeoutError:
@@ -808,7 +808,7 @@ class GCPProvider(CloudProviderInterface):
         except Exception as e:
             raise RuntimeError(f"Failed to create GCP instance: {e}")
             
-    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 600) -> bool:
+    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 180) -> bool:
         """Wait for GCE instance to be ready"""
         start_time = time.time()
         while time.time() - start_time < timeout:
@@ -1023,7 +1023,7 @@ class AzureProvider(CloudProviderInterface):
         except Exception as e:
             raise RuntimeError(f"Failed to create Azure VM: {e}")
             
-    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 600) -> bool:
+    async def wait_for_instance_ready(self, instance_id: str, timeout: int = 180) -> bool:
         """Wait for Azure VM to be ready"""
         start_time = time.time()
         while time.time() - start_time < timeout:

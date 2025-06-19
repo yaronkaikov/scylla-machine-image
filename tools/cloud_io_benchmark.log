@@ -1,0 +1,568 @@
+2025-06-18 23:15:58,004 - INFO - Will test 1 instance types: i7i.8xlarge
+2025-06-18 23:15:58,013 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-18 23:15:58,775 - INFO - Starting benchmarks for 1 instance types
+2025-06-18 23:15:58,775 - INFO - Starting benchmark for i7i.8xlarge with 1 runs
+2025-06-18 23:15:59,133 - INFO - Using default VPC: vpc-0ed34a9fabcc37a47
+2025-06-18 23:15:59,394 - INFO - Using subnet: subnet-049ee626854ecbdfc
+2025-06-18 23:16:00,567 - INFO - Created security group: sg-0cd616ff136866f92
+2025-06-18 23:16:01,355 - ERROR - Failed run 1 for i7i.8xlarge: Failed to create AWS instance: An error occurred (Unsupported) when calling the RunInstances operation: Your requested instance type (i7i.8xlarge) is not supported in your requested Availability Zone (us-east-1e). Please retry your request by not specifying an Availability Zone or choosing us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f.
+2025-06-18 23:16:01,358 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-18 23:23:03,883 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:23:31,422 - INFO - Will test 1 instance types: i7i.large
+2025-06-18 23:23:31,430 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-18 23:23:32,232 - INFO - Starting benchmarks for 1 instance types
+2025-06-18 23:23:32,233 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-18 23:23:32,576 - INFO - Using default VPC: vpc-0ed34a9fabcc37a47
+2025-06-18 23:23:32,835 - INFO - Using subnet: subnet-049ee626854ecbdfc
+2025-06-18 23:23:33,132 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-18 23:23:33,898 - ERROR - Failed run 1 for i7i.large: Failed to create AWS instance: An error occurred (Unsupported) when calling the RunInstances operation: Your requested instance type (i7i.large) is not supported in your requested Availability Zone (us-east-1e). Please retry your request by not specifying an Availability Zone or choosing us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f.
+2025-06-18 23:23:33,901 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-18 23:24:12,985 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:24:13,139 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:24:44,721 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:24:44,866 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:26:43,864 - INFO - Will test 1 instance types: i7i.large
+2025-06-18 23:26:43,873 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-18 23:26:44,669 - INFO - Starting benchmarks for 1 instance types
+2025-06-18 23:26:44,669 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-18 23:26:44,891 - INFO - Using default VPC: vpc-0ed34a9fabcc37a47
+2025-06-18 23:26:45,162 - INFO - Using subnet: subnet-049ee626854ecbdfc
+2025-06-18 23:26:45,461 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-18 23:26:46,209 - ERROR - Failed run 1 for i7i.large: Failed to create AWS instance: An error occurred (Unsupported) when calling the RunInstances operation: Your requested instance type (i7i.large) is not supported in your requested Availability Zone (us-east-1e). Please retry your request by not specifying an Availability Zone or choosing us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f.
+2025-06-18 23:26:46,210 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-18 23:28:27,546 - INFO - Will test 1 instance types: i7i.large
+2025-06-18 23:28:27,553 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-18 23:28:28,270 - INFO - Starting benchmarks for 1 instance types
+2025-06-18 23:28:28,271 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-18 23:28:28,490 - INFO - Using default VPC: vpc-0ed34a9fabcc37a47
+2025-06-18 23:28:28,705 - INFO - Using subnet: subnet-049ee626854ecbdfc
+2025-06-18 23:28:28,914 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-18 23:28:29,662 - ERROR - Failed run 1 for i7i.large: Failed to create AWS instance: An error occurred (Unsupported) when calling the RunInstances operation: Your requested instance type (i7i.large) is not supported in your requested Availability Zone (us-east-1e). Please retry your request by not specifying an Availability Zone or choosing us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f.
+2025-06-18 23:28:29,663 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-18 23:30:56,753 - INFO - Will test 1 instance types: i7i.large
+2025-06-18 23:31:35,238 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:31:35,388 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-18 23:32:45,039 - INFO - Will test 1 instance types: i7i.large
+2025-06-18 23:32:45,048 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-18 23:32:45,859 - INFO - Starting benchmarks for 1 instance types
+2025-06-18 23:32:45,860 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-18 23:32:47,003 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.large
+2025-06-18 23:32:47,003 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-18 23:32:47,290 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-18 23:32:48,591 - INFO - Created AWS instance i-073bd40a6f1532641 of type i7i.large
+2025-06-18 23:35:51,570 - INFO - AWS instance i-073bd40a6f1532641 is ready
+2025-06-18 23:35:51,869 - INFO - Trying SSH connection to AWS instance i-073bd40a6f1532641 (3.91.231.190) as user 'scyllaadm'
+2025-06-18 23:35:53,987 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-18 23:35:53,987 - INFO - Completed run 1 on i7i.large instance i-073bd40a6f1532641
+2025-06-18 23:35:54,554 - INFO - Terminated AWS instance i-073bd40a6f1532641
+2025-06-18 23:36:04,559 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-19 10:31:21,264 - INFO - Will test 1 instance types: i7i.large
+2025-06-19 10:31:21,275 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 10:31:22,056 - INFO - Starting benchmarks for 1 instance types
+2025-06-19 10:31:22,056 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-19 10:31:23,203 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.large
+2025-06-19 10:31:23,203 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 10:31:23,481 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 10:31:27,848 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-19 10:31:27,996 - INFO - Will test 1 instance types: i4i.xlarge
+2025-06-19 10:34:24,666 - INFO - Will test 1 instance types: i7i.large
+2025-06-19 10:34:24,675 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 10:34:25,487 - INFO - Starting benchmarks for 1 instance types
+2025-06-19 10:34:25,487 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-19 10:34:26,607 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.large
+2025-06-19 10:34:26,608 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 10:34:26,877 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 10:34:28,126 - INFO - Created AWS instance i-0d84448e9bfb0e5b5 of type i7i.large
+2025-06-19 10:36:45,500 - INFO - AWS instance i-0d84448e9bfb0e5b5 is ready
+2025-06-19 10:36:45,502 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 10:36:45,789 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:36:47,920 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:36:48,272 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:37:58,095 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:37:58,100 - WARNING - ❌ YAML file not found or command failed: return_code=255, stdout=''
+2025-06-19 10:37:58,949 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:38:00,826 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:38:01,055 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:38:03,007 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:38:03,010 - INFO - ✅ Found write_iops=45819 in io_properties.yaml
+2025-06-19 10:38:03,298 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:38:05,267 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:38:05,518 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:39:17,241 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:39:17,243 - WARNING - ❌ YAML file not found or command failed: return_code=255, stdout=''
+2025-06-19 10:39:18,031 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:39:20,048 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:39:20,308 - INFO - Trying SSH connection to AWS instance i-0d84448e9bfb0e5b5 (13.218.165.182) as user 'scyllaadm'
+2025-06-19 10:39:22,247 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:39:22,248 - INFO - ✅ Found write_bandwidth=416569920 in io_properties.yaml
+2025-06-19 10:39:22,249 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 10:39:22,249 - INFO - Successfully read metrics from YAML file: read_iops=None, write_iops=45819.0, read_bw=None, write_bw=416569920.0
+2025-06-19 10:39:22,249 - INFO - Completed run 1 on i7i.large instance i-0d84448e9bfb0e5b5
+2025-06-19 10:39:22,769 - INFO - Terminated AWS instance i-0d84448e9bfb0e5b5
+2025-06-19 10:39:32,773 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-19 10:52:34,963 - INFO - Will test 1 instance types: i7i.large
+2025-06-19 10:52:34,972 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 10:52:35,762 - INFO - Starting benchmarks for 1 instance types
+2025-06-19 10:52:35,763 - INFO - Starting benchmark for i7i.large with 1 runs
+2025-06-19 10:52:36,895 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.large
+2025-06-19 10:52:36,895 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 10:52:37,181 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 10:52:38,383 - INFO - Created AWS instance i-074441616c964c315 of type i7i.large
+2025-06-19 10:55:56,482 - INFO - AWS instance i-074441616c964c315 is ready
+2025-06-19 10:55:56,485 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 10:55:56,896 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:55:58,923 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:55:59,291 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:01,278 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:01,280 - INFO - ✅ Found read_iops=82271 in io_properties.yaml
+2025-06-19 10:56:01,661 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:03,642 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:04,008 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:05,942 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:05,944 - INFO - ✅ Found write_iops=45698 in io_properties.yaml
+2025-06-19 10:56:06,174 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:08,112 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:08,394 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:10,379 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:10,380 - INFO - ✅ Found read_bandwidth=605085824 in io_properties.yaml
+2025-06-19 10:56:10,662 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:12,654 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:12,948 - INFO - Trying SSH connection to AWS instance i-074441616c964c315 (18.233.97.201) as user 'scyllaadm'
+2025-06-19 10:56:14,939 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 10:56:14,941 - INFO - ✅ Found write_bandwidth=419347936 in io_properties.yaml
+2025-06-19 10:56:14,941 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 10:56:14,941 - INFO - Successfully read metrics from YAML file: read_iops=82271.0, write_iops=45698.0, read_bw=605085824.0, write_bw=419347936.0
+2025-06-19 10:56:14,941 - INFO - Completed run 1 on i7i.large instance i-074441616c964c315
+2025-06-19 10:56:15,463 - INFO - Terminated AWS instance i-074441616c964c315
+2025-06-19 10:56:25,465 - INFO - Exported 1 results to scylla_io_benchmark_results.csv
+2025-06-19 10:57:05,176 - ERROR - No supported instance types found for aws/i7i
+2025-06-19 11:13:22,753 - INFO - Will test 2 instance types: i7i.large, i7i.xlarge
+2025-06-19 11:13:38,731 - INFO - Will test 2 instance types: i4i.large, i4i.xlarge
+2025-06-19 11:13:54,658 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 11:13:55,506 - INFO - Discovering available instance types for family 'i7i' in region us-east-1
+2025-06-19 11:14:09,106 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+2025-06-19 11:16:23,862 - INFO - Will test 2 instance types: i7i.large, i7i.xlarge
+2025-06-19 11:16:33,454 - INFO - Will test 2 instance types: invalid-family.large, invalid-family.xlarge
+2025-06-19 11:18:12,164 - INFO - Will test 2 instance types: i7i.large, i7i.xlarge
+2025-06-19 11:18:22,533 - INFO - Will test 2 instance types: i4i.large, i4i.xlarge
+2025-06-19 11:22:19,510 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-19 11:22:20,278 - INFO - Discovering available instance types for family 'i7i' in region us-east-1
+2025-06-19 11:22:33,698 - INFO - Found 11 instance types for family 'i7i': i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+2025-06-19 11:22:33,699 - INFO - Will test 11 instance types: i7i.12xlarge, i7i.16xlarge, i7i.24xlarge, i7i.2xlarge, i7i.48xlarge, i7i.4xlarge, i7i.8xlarge, i7i.large, i7i.metal-24xl, i7i.metal-48xl, i7i.xlarge
+2025-06-19 11:22:34,415 - INFO - Starting benchmarks for 11 instance types
+2025-06-19 11:22:34,416 - INFO - Starting benchmark for i7i.12xlarge with 1 runs
+2025-06-19 11:22:35,585 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.12xlarge
+2025-06-19 11:22:35,585 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 11:22:35,885 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 11:22:37,433 - INFO - Created AWS instance i-088cc487223b3931e of type i7i.12xlarge
+2025-06-19 11:25:55,679 - INFO - AWS instance i-088cc487223b3931e is ready
+2025-06-19 11:25:55,681 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 11:25:55,969 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:25:57,935 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:25:58,326 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:00,212 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:00,214 - INFO - ✅ Found read_iops=1457793 in io_properties.yaml
+2025-06-19 11:26:00,645 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:02,505 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:02,949 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:04,877 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:04,879 - INFO - ✅ Found write_iops=639184 in io_properties.yaml
+2025-06-19 11:26:05,100 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:07,047 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:07,359 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:09,171 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:09,173 - INFO - ✅ Found read_bandwidth=8583146496 in io_properties.yaml
+2025-06-19 11:26:09,474 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:26:11,404 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:26:11,672 - INFO - Trying SSH connection to AWS instance i-088cc487223b3931e (13.221.163.105) as user 'scyllaadm'
+2025-06-19 11:27:18,303 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:27:18,305 - WARNING - ❌ YAML file not found or command failed: return_code=255, stdout=''
+2025-06-19 11:27:18,305 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 11:27:18,305 - INFO - Successfully read metrics from YAML file: read_iops=1457793.0, write_iops=639184.0, read_bw=8583146496.0, write_bw=None
+2025-06-19 11:27:18,305 - INFO - Completed run 1 on i7i.12xlarge instance i-088cc487223b3931e
+2025-06-19 11:27:18,826 - INFO - Terminated AWS instance i-088cc487223b3931e
+2025-06-19 11:27:28,828 - INFO - Starting benchmark for i7i.16xlarge with 1 runs
+2025-06-19 11:27:30,516 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.16xlarge
+2025-06-19 11:27:30,517 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 11:27:30,800 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 11:27:32,039 - INFO - Created AWS instance i-098cc2808f6cbf572 of type i7i.16xlarge
+2025-06-19 11:30:50,302 - INFO - AWS instance i-098cc2808f6cbf572 is ready
+2025-06-19 11:30:50,302 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 11:30:50,728 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:30:52,860 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:30:53,251 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:30:55,122 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:30:55,124 - INFO - ✅ Found read_iops=1854799 in io_properties.yaml
+2025-06-19 11:30:55,491 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:30:57,397 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:30:57,907 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:30:59,789 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:30:59,791 - INFO - ✅ Found write_iops=800545 in io_properties.yaml
+2025-06-19 11:31:00,023 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:31:01,947 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:31:02,189 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:31:04,118 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:31:04,120 - INFO - ✅ Found read_bandwidth=8581319680 in io_properties.yaml
+2025-06-19 11:31:04,353 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:31:06,296 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:31:06,598 - INFO - Trying SSH connection to AWS instance i-098cc2808f6cbf572 (44.201.182.206) as user 'scyllaadm'
+2025-06-19 11:31:08,530 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:31:08,532 - INFO - ✅ Found write_bandwidth=8579994112 in io_properties.yaml
+2025-06-19 11:31:08,532 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 11:31:08,532 - INFO - Successfully read metrics from YAML file: read_iops=1854799.0, write_iops=800545.0, read_bw=8581319680.0, write_bw=8579994112.0
+2025-06-19 11:31:08,533 - INFO - Completed run 1 on i7i.16xlarge instance i-098cc2808f6cbf572
+2025-06-19 11:31:09,075 - INFO - Terminated AWS instance i-098cc2808f6cbf572
+2025-06-19 11:31:19,078 - INFO - Starting benchmark for i7i.24xlarge with 1 runs
+2025-06-19 11:31:20,711 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.24xlarge
+2025-06-19 11:31:20,712 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 11:31:21,066 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 11:31:22,337 - INFO - Created AWS instance i-006e5340dac122ca9 of type i7i.24xlarge
+2025-06-19 11:37:09,836 - INFO - AWS instance i-006e5340dac122ca9 is ready
+2025-06-19 11:37:09,837 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 11:37:10,128 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:37:12,113 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:37:12,347 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:37:14,625 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:37:14,627 - INFO - ✅ Found read_iops=2702882 in io_properties.yaml
+2025-06-19 11:37:14,854 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:41:03,955 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:41:05,981 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:41:08,239 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:41:08,242 - INFO - ✅ Found write_iops=1113664 in io_properties.yaml
+2025-06-19 11:41:08,575 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:42:52,825 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:42:53,600 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:42:55,488 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:42:55,490 - INFO - ✅ Found read_bandwidth=8580099072 in io_properties.yaml
+2025-06-19 11:42:55,718 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:42:57,595 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:42:57,824 - INFO - Trying SSH connection to AWS instance i-006e5340dac122ca9 (13.217.163.5) as user 'scyllaadm'
+2025-06-19 11:42:59,701 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:42:59,703 - INFO - ✅ Found write_bandwidth=8579386880 in io_properties.yaml
+2025-06-19 11:42:59,703 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 11:42:59,703 - INFO - Successfully read metrics from YAML file: read_iops=2702882.0, write_iops=1113664.0, read_bw=8580099072.0, write_bw=8579386880.0
+2025-06-19 11:42:59,703 - INFO - Completed run 1 on i7i.24xlarge instance i-006e5340dac122ca9
+2025-06-19 11:43:00,235 - INFO - Terminated AWS instance i-006e5340dac122ca9
+2025-06-19 11:43:10,237 - INFO - Starting benchmark for i7i.2xlarge with 1 runs
+2025-06-19 11:43:11,318 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.2xlarge
+2025-06-19 11:43:11,318 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 11:43:11,602 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 11:43:12,798 - INFO - Created AWS instance i-03de3637fd1959715 of type i7i.2xlarge
+2025-06-19 11:45:55,986 - INFO - AWS instance i-03de3637fd1959715 is ready
+2025-06-19 11:45:55,987 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 11:45:56,285 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:45:58,196 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:45:58,425 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:00,426 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:00,428 - INFO - ✅ Found read_iops=328351 in io_properties.yaml
+2025-06-19 11:46:00,656 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:02,895 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:03,224 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:05,362 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:05,364 - INFO - ✅ Found write_iops=180653 in io_properties.yaml
+2025-06-19 11:46:05,720 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:07,755 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:07,989 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:09,926 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:09,928 - INFO - ✅ Found read_bandwidth=2438730752 in io_properties.yaml
+2025-06-19 11:46:10,163 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:12,097 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:12,330 - INFO - Trying SSH connection to AWS instance i-03de3637fd1959715 (34.227.15.156) as user 'scyllaadm'
+2025-06-19 11:46:14,246 - INFO - Successfully connected as user 'scyllaadm'
+2025-06-19 11:46:14,248 - INFO - ✅ Found write_bandwidth=1683468928 in io_properties.yaml
+2025-06-19 11:46:14,249 - INFO - ✅ Successfully read I/O metrics from YAML file
+2025-06-19 11:46:14,249 - INFO - Successfully read metrics from YAML file: read_iops=328351.0, write_iops=180653.0, read_bw=2438730752.0, write_bw=1683468928.0
+2025-06-19 11:46:14,249 - INFO - Completed run 1 on i7i.2xlarge instance i-03de3637fd1959715
+2025-06-19 11:46:14,858 - INFO - Terminated AWS instance i-03de3637fd1959715
+2025-06-19 11:46:24,860 - INFO - Starting benchmark for i7i.48xlarge with 1 runs
+2025-06-19 11:46:25,986 - INFO - Found supported subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b for instance type i7i.48xlarge
+2025-06-19 11:46:25,986 - INFO - Using VPC vpc-0ed34a9fabcc37a47 with subnet subnet-00f4bc9f5276b9b84 in zone us-east-1b
+2025-06-19 11:46:26,264 - INFO - Using existing security group: sg-0cd616ff136866f92
+2025-06-19 11:46:27,515 - INFO - Created AWS instance i-07a6e175d811355ed of type i7i.48xlarge
+2025-06-19 12:01:06,210 - INFO - AWS instance i-07a6e175d811355ed is ready
+2025-06-19 12:01:06,211 - INFO - Attempting to read I/O metrics from /etc/scylla.d/io_properties.yaml
+2025-06-19 12:01:06,511 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:09,341 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:10,836 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:12,323 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:13,756 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:15,209 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:15,446 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:16,899 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:18,385 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:19,922 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:21,427 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:22,878 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:22,879 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:01:23,112 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:24,793 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:26,664 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:28,466 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:29,958 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:31,406 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:31,636 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:33,135 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:34,626 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:36,078 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:37,530 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:39,029 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:39,030 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:01:39,255 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:40,799 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:42,292 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:43,778 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:45,220 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:46,670 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:46,916 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:48,400 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:49,866 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:51,357 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:01:52,876 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:01:54,327 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:01:54,328 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:01:54,571 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:01:56,131 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:01:57,613 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:01:59,105 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:00,543 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:02,006 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:02,238 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:03,739 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:05,199 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:06,695 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:08,098 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:09,505 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:09,505 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:02:09,505 - INFO - ⏳ YAML file not ready yet, checking scylla-server status... (258s remaining)
+2025-06-19 12:02:09,734 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:11,279 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:12,774 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:14,236 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:15,677 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:17,086 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:17,087 - INFO - ❓ scylla-server status: unknown, continuing to wait...
+2025-06-19 12:02:27,343 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:28,831 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:30,336 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:31,781 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:33,226 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:34,642 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:34,868 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:36,348 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:37,848 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:39,336 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:40,795 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:42,203 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:42,204 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:02:42,438 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:43,890 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:45,352 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:46,899 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:48,392 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:49,827 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:50,056 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:51,557 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:02:53,056 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:02:54,599 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:02:56,095 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:02:57,543 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:02:57,543 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:02:57,776 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:02:59,311 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:00,823 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:02,269 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:03,767 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:05,165 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:05,395 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:06,933 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:08,387 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:09,930 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:11,387 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:12,833 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:12,834 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:03:13,066 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:14,568 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:16,072 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:17,526 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:19,018 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:20,542 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:20,862 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:22,403 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:23,947 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:25,443 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:26,889 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:28,365 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:28,365 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:03:28,365 - INFO - ⏳ YAML file not ready yet, checking scylla-server status... (179s remaining)
+2025-06-19 12:03:28,593 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:30,094 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:31,593 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:33,042 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:34,478 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:35,924 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:35,924 - INFO - ❓ scylla-server status: unknown, continuing to wait...
+2025-06-19 12:03:46,189 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:47,686 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:49,191 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:50,696 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:52,108 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:03:53,607 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:03:53,885 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:03:55,372 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:03:56,844 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:03:58,386 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:03:59,890 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:01,334 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:01,334 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:04:01,614 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:03,095 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:04,671 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:06,169 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:07,611 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:09,106 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:09,346 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:10,842 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:12,347 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:13,802 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:15,295 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:16,743 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:16,744 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:04:16,969 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:18,456 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:19,949 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:21,442 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:22,858 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:24,314 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:24,550 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:26,025 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:27,473 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:28,994 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:30,470 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:31,930 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:31,931 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:04:32,164 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:33,651 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:35,161 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:36,715 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:38,114 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:39,556 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:39,783 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:41,233 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:42,747 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:44,286 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:45,745 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:47,242 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:47,243 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:04:47,243 - INFO - ⏳ YAML file not ready yet, checking scylla-server status... (100s remaining)
+2025-06-19 12:04:47,474 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:04:48,978 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:04:50,437 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:04:51,927 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:04:53,376 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:04:54,834 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:04:54,834 - INFO - ❓ scylla-server status: unknown, continuing to wait...
+2025-06-19 12:05:05,072 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:06,525 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:08,028 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:09,533 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:10,937 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:12,434 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:13,195 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:14,734 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:16,242 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:17,741 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:19,249 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:20,708 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:20,708 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:05:20,938 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:22,419 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:23,914 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:25,407 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:26,817 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:28,272 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:28,505 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:30,050 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:31,499 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:33,000 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:34,443 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:35,889 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:35,890 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:05:36,111 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:37,601 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:39,104 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:40,604 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:42,094 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:43,502 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:43,740 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:45,232 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:46,700 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:48,187 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:49,638 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:51,090 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:51,090 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:05:51,320 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:05:52,862 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:05:54,357 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:05:55,853 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:05:57,300 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:05:58,707 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:05:58,941 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:00,430 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:01,935 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:03,477 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:04,926 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:06,362 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:06,363 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:06:06,363 - INFO - ⏳ YAML file not ready yet, checking scylla-server status... (21s remaining)
+2025-06-19 12:06:06,590 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:08,078 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:09,572 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:11,026 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:12,521 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:13,927 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:13,927 - INFO - ❓ scylla-server status: unknown, continuing to wait...
+2025-06-19 12:06:16,303 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:17,785 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:19,282 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:20,775 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:22,205 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:23,705 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:23,941 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:25,436 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:26,932 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:28,393 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:29,838 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:31,281 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:31,282 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:06:31,522 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:33,020 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:34,593 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:36,090 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:37,529 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:38,976 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:39,253 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:40,743 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:42,257 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:43,749 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:45,193 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:46,645 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:46,646 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:06:46,885 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:48,327 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:49,828 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:51,315 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:06:52,767 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:06:54,258 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:06:54,485 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:06:55,971 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:06:57,467 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:06:58,926 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:07:00,413 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:07:01,858 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
+2025-06-19 12:07:01,859 - WARNING - ❌ YAML file not found or command failed: return_code=1, stdout=''
+2025-06-19 12:07:02,092 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'scyllaadm'
+2025-06-19 12:07:03,549 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'centos'
+2025-06-19 12:07:05,043 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ubuntu'
+2025-06-19 12:07:06,524 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'ec2-user'
+2025-06-19 12:07:07,964 - INFO - Trying SSH connection to AWS instance i-07a6e175d811355ed (34.207.129.23) as user 'admin'
+2025-06-19 12:07:09,414 - ERROR - SSH connection failed for all attempted users: ['scyllaadm', 'centos', 'ubuntu', 'ec2-user', 'admin']
