@@ -1405,8 +1405,8 @@ class CloudBenchmarkRunner:
         
     async def benchmark_instance_type(self, instance_type: str, image_id: str, 
                                     runs: int = 3) -> List[IoSetupResult]:
-        """Run benchmark on a single instance type with multiple runs"""
-        logger.info(f"Starting benchmark for {instance_type} with {runs} runs")
+        """Run benchmark on a single instance type with multiple runs in parallel"""
+        logger.info(f"Starting benchmark for {instance_type} with {runs} runs (parallel execution)")
         
         # Create instance configuration
         config = InstanceConfig(
@@ -1418,38 +1418,57 @@ class CloudBenchmarkRunner:
             user_data=self._get_user_data()
         )
         
-        instance_results = []
+        # Create semaphore to limit concurrent runs within this instance type
+        # Use min of runs and max_concurrent to avoid creating too many concurrent tasks
+        run_semaphore = asyncio.Semaphore(min(runs, self.max_concurrent))
         
-        for run_number in range(1, runs + 1):
-            try:
-                # Create instance
-                instance_id = await self.provider.create_instance(config)
-                
-                # Run benchmark
-                result = await self.run_io_setup_on_instance(instance_id, instance_type, run_number)
-                instance_results.append(result)
-                self.results.append(result)
-                
-                # Clean up instance
-                await self.provider.terminate_instance(instance_id)
-                
-                # Brief pause between runs
-                await asyncio.sleep(10)
-                
-            except Exception as e:
-                logger.error(f"Failed run {run_number} for {instance_type}: {e}")
-                error_result = IoSetupResult(
-                    cloud=self.provider.__class__.__name__.replace('Provider', '').lower(),
-                    instance_type=instance_type,
-                    instance_id="unknown",
-                    run_number=run_number,
-                    success=False,
-                    execution_time=0,
-                    error_message=str(e)
-                )
-                instance_results.append(error_result)
-                self.results.append(error_result)
-                
+        async def run_single_benchmark(run_number: int) -> IoSetupResult:
+            """Run a single benchmark run with concurrency control"""
+            async with run_semaphore:
+                try:
+                    logger.info(f"Starting run {run_number}/{runs} for {instance_type}")
+                    
+                    # Create instance
+                    instance_id = await self.provider.create_instance(config)
+                    
+                    try:
+                        # Run benchmark
+                        result = await self.run_io_setup_on_instance(instance_id, instance_type, run_number)
+                        logger.info(f"✅ Completed run {run_number}/{runs} for {instance_type}")
+                        return result
+                        
+                    finally:
+                        # Always clean up instance, even if benchmark fails
+                        try:
+                            await self.provider.terminate_instance(instance_id)
+                        except Exception as cleanup_error:
+                            logger.error(f"Failed to terminate instance {instance_id}: {cleanup_error}")
+                    
+                except Exception as e:
+                    logger.error(f"❌ Failed run {run_number}/{runs} for {instance_type}: {e}")
+                    return IoSetupResult(
+                        cloud=self.provider.__class__.__name__.replace('Provider', '').lower(),
+                        instance_type=instance_type,
+                        instance_id="unknown",
+                        run_number=run_number,
+                        success=False,
+                        execution_time=0,
+                        error_message=str(e)
+                    )
+        
+        # Create tasks for all runs and execute them in parallel
+        tasks = [run_single_benchmark(run_number) for run_number in range(1, runs + 1)]
+        
+        logger.info(f"Executing {len(tasks)} benchmark runs in parallel for {instance_type}")
+        instance_results = await asyncio.gather(*tasks, return_exceptions=False)
+        
+        # Add results to global results list
+        for result in instance_results:
+            self.results.append(result)
+        
+        successful_runs = sum(1 for r in instance_results if r.success)
+        logger.info(f"Completed benchmark for {instance_type}: {successful_runs}/{runs} runs successful")
+        
         return instance_results
         
     def _get_user_data(self) -> str:
