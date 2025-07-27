@@ -57,7 +57,23 @@ class aws_io_setup(cloud_io_setup):
         if t:
             for p in ["read_iops", "read_bandwidth", "write_iops", "write_bandwidth"]:
                 self.disk_properties[p] = io_params[t][p] * nr_disks
-            self.save()
+            # Always create both .yaml and .yaml.new files with the updated values
+            properties_path = "/etc/scylla.d/io_properties.yaml"
+            new_path = properties_path + ".new"
+            new_data = {"disks": [self.disk_properties]}
+            print(f"Updated io_properties.yaml is available at {properties_path} and {new_path}.\n"
+                  f"To apply the new configuration, restart the Scylla service if needed.")
+            for path in [properties_path, new_path]:
+                with open(path, "w") as properties_file:
+                    yaml.dump(new_data, properties_file,  default_flow_style=False)
+                os.chmod(path, 0o644)
+            # Update both io.conf and io.conf.new
+            ioconf_path = "/etc/scylla.d/io.conf"
+            ioconf_new_path = "/etc/scylla.d/io.conf.new"
+            for conf_path in [ioconf_path, ioconf_new_path]:
+                with open(conf_path, "w") as ioconf:
+                    ioconf.write(f'SEASTAR_IO="--io-properties-file={properties_path}"\n')
+                os.chmod(conf_path, 0o644)
         else:
             logging.warning("This is a supported instance but with no pre-configured io, scylla_io_setup will be run")
             subprocess.run('scylla_io_setup', shell=True, check=True, capture_output=True, timeout=300)
