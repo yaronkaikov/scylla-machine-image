@@ -91,9 +91,6 @@ class gcp_io_setup(cloud_io_setup):
         self.disk_properties = {}
         self.disk_properties["mountpoint"] = '/var/lib/scylla'
         nr_disks = self.idata.nvme_disk_count
-        # below is based on https://cloud.google.com/compute/docs/disks/local-ssd#performance
-        # and https://cloud.google.com/compute/docs/disks/local-ssd#nvme
-        # note that scylla iotune might measure more, this is GCP recommended
         mbs=1024*1024
         if nr_disks >= 1 and nr_disks < 4:
             self.disk_properties["read_iops"] = 170000 * nr_disks
@@ -108,24 +105,30 @@ class gcp_io_setup(cloud_io_setup):
         elif nr_disks == 16:
             self.disk_properties["read_iops"] = 1600000
             self.disk_properties["read_bandwidth"] = 4521251328
-            #below is google, above is our measured
-            #self.disk_properties["read_bandwidth"] = 6240 * mbs
             self.disk_properties["write_iops"] = 800000
             self.disk_properties["write_bandwidth"] = 2759452672
-            #below is google, above is our measured
-            #self.disk_properties["write_bandwidth"] = 3120 * mbs
         elif nr_disks == 24:
             self.disk_properties["read_iops"] = 2400000
             self.disk_properties["read_bandwidth"] = 5921532416
-            #below is google, above is our measured
-            #self.disk_properties["read_bandwidth"] = 9360 * mbs
             self.disk_properties["write_iops"] = 1200000
             self.disk_properties["write_bandwidth"] = 4663037952
-            #below is google, above is our measured
-            #self.disk_properties["write_bandwidth"] = 4680 * mbs
 
         if "read_iops" in self.disk_properties:
-            self.save()
+            properties_path = "/etc/scylla.d/io_properties.yaml"
+            new_path = properties_path + ".new"
+            new_data = {"disks": [self.disk_properties]}
+            print(f"Updated io_properties.yaml is available at {properties_path} and {new_path}.\n"
+                  f"To apply the new configuration, restart the Scylla service if needed.")
+            for path in [properties_path, new_path]:
+                with open(path, "w") as properties_file:
+                    yaml.dump(new_data, properties_file,  default_flow_style=False)
+                os.chmod(path, 0o644)
+            ioconf_path = "/etc/scylla.d/io.conf"
+            ioconf_new_path = "/etc/scylla.d/io.conf.new"
+            for conf_path in [ioconf_path, ioconf_new_path]:
+                with open(conf_path, "w") as ioconf:
+                    ioconf.write(f'SEASTAR_IO="--io-properties-file={properties_path}"\n')
+                os.chmod(conf_path, 0o644)
         else:
             logging.warning("This is a supported instance but with no pre-configured io, scylla_io_setup will be run")
             subprocess.run('scylla_io_setup', shell=True, check=True, capture_output=True, timeout=300)
@@ -144,9 +147,6 @@ class azure_io_setup(cloud_io_setup):
         self.disk_properties = {}
         self.disk_properties["mountpoint"] = '/var/lib/scylla'
         nr_disks = self.idata.nvme_disk_count
-        # below is based on https://docs.microsoft.com/en-us/azure/virtual-machines/lsv2-series
-        # note that scylla iotune might measure more, this is Azure recommended
-        # since write properties are not defined, they come from our iotune tests
         mbs = 1024*1024
         if nr_disks == 1:
             self.disk_properties["read_iops"] = 400000
@@ -180,7 +180,21 @@ class azure_io_setup(cloud_io_setup):
             self.disk_properties["write_bandwidth"] = 11998 * mbs
 
         if "read_iops" in self.disk_properties:
-            self.save()
+            properties_path = "/etc/scylla.d/io_properties.yaml"
+            new_path = properties_path + ".new"
+            new_data = {"disks": [self.disk_properties]}
+            print(f"Updated io_properties.yaml is available at {properties_path} and {new_path}.\n"
+                  f"To apply the new configuration, restart the Scylla service if needed.")
+            for path in [properties_path, new_path]:
+                with open(path, "w") as properties_file:
+                    yaml.dump(new_data, properties_file,  default_flow_style=False)
+                os.chmod(path, 0o644)
+            ioconf_path = "/etc/scylla.d/io.conf"
+            ioconf_new_path = "/etc/scylla.d/io.conf.new"
+            for conf_path in [ioconf_path, ioconf_new_path]:
+                with open(conf_path, "w") as ioconf:
+                    ioconf.write(f'SEASTAR_IO="--io-properties-file={properties_path}"\n')
+                os.chmod(conf_path, 0o644)
         else:
             logging.warning("This is a supported instance but with no pre-configured io, scylla_io_setup will be run")
             subprocess.run('scylla_io_setup', shell=True, check=True, capture_output=True, timeout=300)

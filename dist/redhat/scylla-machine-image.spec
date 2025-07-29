@@ -50,6 +50,7 @@ install -m755 common/scylla_configure.py common/scylla_post_start.py common/scyl
 /usr/sbin/useradd -g scylla -s /sbin/nologin -r -d ${_sharedstatedir}/scylla scylla 2> /dev/null || :
 
 %post
+/opt/scylladb/scylla-machine-image/scylla_image_setup || echo "Warning: scylla_image_setup failed, please run it manually."
 %systemd_post scylla-image-setup.service
 %systemd_post scylla-image-post-start.service
 
